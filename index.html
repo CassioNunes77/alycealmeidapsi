@@ -274,25 +274,10 @@
             aspect-ratio: 3/4;
         }
 
-        .about-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            object-fit: cover;
-            aspect-ratio: 3/4;
-        }
-
-        /* Responsive adjustments for about images */
+        /* Responsive adjustments for about image */
         @media (max-width: 768px) {
-            .about-images {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .about-image:first-child,
-            .about-image:last-child {
-                margin-top: 0;
+            .about-image img {
+                max-width: 90%;
             }
         }
 
@@ -334,23 +319,53 @@
             align-items: center;
         }
 
-        .about-images {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            align-items: start;
-        }
-
         .about-image {
             position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .about-image:first-child {
-            margin-top: 2rem;
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            aspect-ratio: 3/4;
+            transition: transform 0.3s ease;
         }
 
-        .about-image:last-child {
-            margin-top: -2rem;
+        .about-image img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Decorative element for about section */
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            background: var(--gradient);
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            width: 80px;
+            height: 80px;
+            background: var(--primary-beige);
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: -1;
         }
 
         .about-text h3 {
@@ -830,7 +845,7 @@
                 </div>
             </div>
             <div class="hero-image" data-aos="fade-left">
-                <img src="alyce-almeida.jpg" alt="Alyce Almeida - Psicóloga Comportamental">
+                <img src="alyce-almeida-2.jpg" alt="Alyce Almeida - Psicóloga Comportamental">
             </div>
         </div>
     </section>
@@ -864,13 +879,8 @@
                     </div>
                 </div>
             </div>
-            <div class="about-images">
-                <div class="about-image" data-aos="fade-left" data-aos-delay="100">
-                    <img src="alyce-almeida.jpg" alt="Alyce Almeida - Psicóloga Comportamental">
-                </div>
-                <div class="about-image" data-aos="fade-left" data-aos-delay="300">
-                    <img src="alyce-almeida-2.jpg" alt="Alyce Almeida - Psicóloga Comportamental">
-                </div>
+            <div class="about-image" data-aos="fade-left">
+                <img src="alyce-almeida.jpg" alt="Alyce Almeida - Psicóloga Comportamental">
             </div>
         </div>
     </section>
