@@ -1,1 +1,1219 @@
-Hello Psi
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alyce Almeida - Psicóloga Comportamental</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* CSS Variables for Brand Colors */
+        :root {
+            --primary-beige: #CDBA96;
+            --light-beige: #E8DCC4;
+            --dark-beige: #B8A67A;
+            --white: #FFFFFF;
+            --text-dark: #2C2C2C;
+            --text-light: #6B6B6B;
+            --shadow: rgba(205, 186, 150, 0.1);
+            --gradient: linear-gradient(135deg, var(--primary-beige), var(--light-beige));
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Custom Font for Brand Elements */
+        @font-face {
+            font-family: 'All Round Gothic Medium';
+            src: url('https://fonts.cdnfonts.com/css/all-round-gothic') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        .brand-font {
+            font-family: 'All Round Gothic Medium', 'Inter', sans-serif;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--light-beige);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .logo-text h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-beige);
+            margin-bottom: 0.2rem;
+        }
+
+        .logo-text p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-beige);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-beige);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-text h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--white);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--white);
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-beige);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-beige);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            aspect-ratio: 3/4;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            aspect-ratio: 3/4;
+        }
+
+        /* Responsive adjustments for about images */
+        @media (max-width: 768px) {
+            .about-images {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .about-image:first-child,
+            .about-image:last-child {
+                margin-top: 0;
+            }
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--white);
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image:first-child {
+            margin-top: 2rem;
+        }
+
+        .about-image:last-child {
+            margin-top: -2rem;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .credentials {
+            background: var(--light-beige);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+
+        .credentials h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .credential-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .credential-item i {
+            color: var(--primary-beige);
+        }
+
+        /* Services Section */
+        .services {
+            background: #f8f9fa;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px var(--shadow);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--shadow);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Instagram Feed Section */
+        .instagram {
+            background: var(--white);
+        }
+
+        .instagram-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .instagram-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .instagram-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--shadow);
+        }
+
+        .instagram-image {
+            width: 100%;
+            height: 250px;
+            background: var(--light-beige);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-beige);
+            font-size: 3rem;
+        }
+
+        .instagram-content {
+            padding: 1.5rem;
+        }
+
+        .instagram-content h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .instagram-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Quote Form Section */
+        .quote {
+            background: var(--gradient);
+            color: var(--white);
+        }
+
+        .quote-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .quote-form {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--light-beige);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-beige);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-beige);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-beige);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-beige);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-2px);
+            background: var(--dark-beige);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--light-beige);
+            border-top: 3px solid var(--primary-beige);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Smooth Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light-beige);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-beige);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--dark-beige);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5582998379114" class="whatsapp-float" target="_blank" title="Agende sua consulta">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="logo-text">
+                    <h1 class="brand-font">Alyce Almeida</h1>
+                    <p>Psicóloga Comportamental</p>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#instagram">Instagram</a></li>
+                <li><a href="#quote">Orçamento</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text" data-aos="fade-right">
+                <h1 class="brand-font">Alyce Almeida</h1>
+                <h2>Psicóloga Comportamental</h2>
+                <p>Especializada em terapia comportamental, ofereço um espaço seguro e acolhedor para seu desenvolvimento pessoal e bem-estar emocional. Vamos juntos trilhar o caminho do autoconhecimento e da transformação.</p>
+                <div class="cta-buttons">
+                    <a href="#quote" class="btn btn-primary">
+                        <i class="fas fa-calendar-check"></i>
+                        Agendar Consulta
+                    </a>
+                    <a href="#about" class="btn btn-secondary">
+                        <i class="fas fa-user"></i>
+                        Conheça Mais
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left">
+                <img src="alyce-almeida.jpg" alt="Alyce Almeida - Psicóloga Comportamental">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Sobre Mim</h2>
+            <p>Conheça minha trajetória profissional e como posso ajudá-lo em sua jornada de autoconhecimento</p>
+        </div>
+        <div class="about-content">
+            <div class="about-text" data-aos="fade-right">
+                <h3>Psicóloga Comportamental</h3>
+                <p>Sou Alyce Almeida, psicóloga especializada em terapia comportamental com vasta experiência em ajudar pessoas a superarem desafios emocionais e desenvolverem uma vida mais equilibrada e satisfatória.</p>
+                <p>Minha abordagem é baseada na ciência comportamental, oferecendo técnicas comprovadas e estratégias práticas para lidar com ansiedade, depressão, estresse e outros desafios emocionais.</p>
+                <p>Acredito que cada pessoa é única e merece um tratamento personalizado, respeitando suas individualidades e necessidades específicas.</p>
+                
+                <div class="credentials">
+                    <h4>Credenciais Profissionais</h4>
+                    <div class="credential-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>CRP 02/28501</span>
+                    </div>
+                    <div class="credential-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>CRP 03/IS00432</span>
+                    </div>
+                    <div class="credential-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Especialização em Terapia Comportamental - IBAC</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-images">
+                <div class="about-image" data-aos="fade-left" data-aos-delay="100">
+                    <img src="alyce-almeida.jpg" alt="Alyce Almeida - Psicóloga Comportamental">
+                </div>
+                <div class="about-image" data-aos="fade-left" data-aos-delay="300">
+                    <img src="alyce-almeida-2.jpg" alt="Alyce Almeida - Psicóloga Comportamental">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Serviços</h2>
+            <p>Ofereço uma variedade de serviços psicológicos para atender suas necessidades específicas</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Terapia Individual</h3>
+                <p>Sessões personalizadas focadas em suas necessidades específicas, oferecendo um espaço seguro para autoconhecimento e desenvolvimento pessoal.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Terapia Cognitivo-Comportamental</h3>
+                <p>Abordagem baseada em evidências científicas para identificar e modificar padrões de pensamento e comportamento.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Análise do Comportamento</h3>
+                <p>Intervenções baseadas na análise funcional do comportamento para promover mudanças duradouras e significativas.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="service-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Ansiedade e Depressão</h3>
+                <p>Tratamento especializado para transtornos de ansiedade e depressão, com técnicas comportamentais comprovadas.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="service-icon">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <h3>Gestão do Estresse</h3>
+                <p>Estratégias práticas para lidar com o estresse diário e desenvolver resiliência emocional.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="service-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Desenvolvimento Pessoal</h3>
+                <p>Orientacao para autoconhecimento, definição de metas e desenvolvimento de habilidades pessoais.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Feed Section -->
+    <section class="section instagram" id="instagram">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Últimas Postagens</h2>
+            <p>Acompanhe meu trabalho e dicas de bem-estar no Instagram</p>
+        </div>
+        <div class="instagram-grid">
+            <div class="instagram-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="instagram-image">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="instagram-content">
+                    <h4>Autocuidado Diário</h4>
+                    <p>Dicas práticas para incluir o autocuidado na sua rotina diária e melhorar sua qualidade de vida.</p>
+                </div>
+            </div>
+            <div class="instagram-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="instagram-image">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="instagram-content">
+                    <h4>Saúde Mental</h4>
+                    <p>Informações sobre saúde mental e como buscar ajuda quando necessário.</p>
+                </div>
+            </div>
+            <div class="instagram-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="instagram-image">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div class="instagram-content">
+                    <h4>Bem-estar</h4>
+                    <p>Estratégias para cultivar o bem-estar emocional e mental no dia a dia.</p>
+                </div>
+            </div>
+            <div class="instagram-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="instagram-image">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="instagram-content">
+                    <h4>Relacionamentos</h4>
+                    <p>Dicas para melhorar a comunicação e fortalecer relacionamentos pessoais.</p>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="https://www.instagram.com/alycealmeida.psi" target="_blank" class="btn btn-primary">
+                <i class="fab fa-instagram"></i>
+                Seguir no Instagram
+            </a>
+        </div>
+    </section>
+
+    <!-- Quote Form Section -->
+    <section class="section quote" id="quote">
+        <div class="quote-content">
+            <div class="section-title" data-aos="fade-up">
+                <h2 style="color: var(--white);">Solicitar Orçamento</h2>
+                <p style="color: var(--white); opacity: 0.9;">Preencha o formulário abaixo e entrarei em contato para agendar sua consulta</p>
+            </div>
+            <form class="quote-form" id="quoteForm" data-aos="fade-up">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Nome Completo *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Idade *</label>
+                        <input type="number" id="age" name="age" min="1" max="120" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Telefone/WhatsApp *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="therapy">Já fez terapia antes? *</label>
+                    <select id="therapy" name="therapy" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="service">Tipo de Atendimento Desejado *</label>
+                    <select id="service" name="service" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="individual">Terapia Individual</option>
+                        <option value="cognitivo-comportamental">Terapia Cognitivo-Comportamental</option>
+                        <option value="analise-comportamento">Análise do Comportamento</option>
+                        <option value="ansiedade">Ansiedade e Depressão</option>
+                        <option value="estresse">Gestão do Estresse</option>
+                        <option value="desenvolvimento">Desenvolvimento Pessoal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem (opcional)</label>
+                    <textarea id="message" name="message" placeholder="Conte um pouco sobre o que você gostaria de trabalhar na terapia..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    Enviar Solicitação
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Alyce Almeida</h3>
+                <p>Psicóloga Comportamental especializada em oferecer um espaço seguro e acolhedor para seu desenvolvimento pessoal e bem-estar emocional.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/alycealmeida.psi" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/5582998379114" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <p><i class="fas fa-phone"></i> (82) 99837-9114</p>
+                <p><i class="fas fa-envelope"></i> alycealmeida@hotmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Petrolândia - PE / Paulo Afonso - BA</p>
+            </div>
+            <div class="footer-section">
+                <h3>Serviços</h3>
+                <p>• Terapia Individual</p>
+                <p>• Terapia Cognitivo-Comportamental</p>
+                <p>• Análise do Comportamento</p>
+                <p>• Ansiedade e Depressão</p>
+                <p>• Gestão do Estresse</p>
+            </div>
+            <div class="footer-section">
+                <h3>Credenciais</h3>
+                <p>CRP 02/28501</p>
+                <p>CRP 03/IS00432</p>
+                <p>Especialização em Terapia Comportamental - IBAC</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Alyce Almeida - Psicóloga Comportamental. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Loading Screen
+        window.addEventListener('load', function() {
+            const loading = document.getElementById('loading');
+            setTimeout(() => {
+                loading.classList.add('hidden');
+            }, 500);
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Quote Form Submission
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Create WhatsApp message
+            let message = `*Nova Solicitação de Orçamento*\n\n`;
+            message += `*Nome:* ${data.name}\n`;
+            message += `*Idade:* ${data.age}\n`;
+            message += `*Telefone:* ${data.phone}\n`;
+            if (data.email) message += `*E-mail:* ${data.email}\n`;
+            message += `*Já fez terapia antes:* ${data.therapy}\n`;
+            message += `*Tipo de atendimento:* ${data.service}\n`;
+            if (data.message) message += `*Mensagem:* ${data.message}\n`;
+            
+            // Encode message for WhatsApp
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/5582998379114?text=${encodedMessage}`;
+            
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset form
+            this.reset();
+            
+            // Show success message
+            alert('Solicitação enviada! Você será redirecionado para o WhatsApp.');
+        });
+
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        });
+
+        // Intersection Observer for Fade-in Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax Effect for Hero Section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Form Validation
+        document.querySelectorAll('input[required], select[required]').forEach(input => {
+            input.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.style.borderColor = '#ff6b6b';
+                } else {
+                    this.style.borderColor = 'var(--primary-beige)';
+                }
+            });
+        });
+
+        // Smooth reveal animations for sections
+        function revealOnScroll() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (sectionTop < windowHeight * 0.75) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+    </script>
+</body>
+</html>
